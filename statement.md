@@ -2,6 +2,7 @@
 ```C++ runnable
 
 #include <string>
+#include<iostream>
 template <class T>
 class Singleton
 {
@@ -71,8 +72,10 @@ int main()
   Map* m = Map::get_instance(42);
   // Use these singletons.
   Single1* s1 = Single1::get_instance();
+  Single1* s2 = Single1::get_instance();
   s1->display();
-  
+  std::cout << "singleton address = " << static_cast<void*>(s1) << std::endl;
+  std::cout << "singleton address = " << static_cast<void*>(s2) << std::endl;
   Map::destroy_instance();
   Single::destroy_instance();
 }
